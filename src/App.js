@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initialLoad } from 'Auth/store/thunks';
 import NotFound from 'shared/pages/NotFound';
+import Providers from 'Providers/pages/Providers';
 
 const App = () => {
   const { token } = useSelector((state) => state.auth);
@@ -48,6 +49,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <EditProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/providers"
+          element={
+            <ProtectedRoute>
+              <Providers />
             </ProtectedRoute>
           }
         />
