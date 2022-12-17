@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./shared/components/Layout";
 import Home from "./shared/pages/Home";
-import Products from './shared/pages/Products';
-import Product from './shared/pages/Product';
+import Products from 'Products/pages/Products';
+import Product from 'Products/pages/Product';
 import 'App.css';
 import EditProduct from "Products/pages/EditProduct";
 

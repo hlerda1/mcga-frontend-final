@@ -1,4 +1,4 @@
-import ProdForm from 'Products/components/prodForm';
+import ProdForm from 'Products/components/ProductForm';
 import { useProducts } from 'Products/store/reducer';
 import { getProduct } from 'Products/store/thunks';
 import { useEffect } from 'react';

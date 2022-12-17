@@ -1,4 +1,4 @@
-import ProdForm from '../../../Products/components/prodForm';
+import ProdForm from '../../components/ProductForm';
 import styles from './product.module.css';
 
 const ProdInputForm = () => {

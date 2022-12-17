@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import styles from './prodform.module.css';
-import ProdInput from '../../../shared/components/prodInput';
-import ProdButton from '../../../shared/components/prodButton';
+import ProdInput from '../../../shared/components/Input';
+import ProdButton from '../../../shared/components/Button';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
