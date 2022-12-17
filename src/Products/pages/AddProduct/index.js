@@ -1,5 +1,5 @@
 import ProdForm from '../../components/ProductForm';
-import styles from './product.module.css';
+import styles from './AddProduct.module.css';
 
 const ProdInputForm = () => {
   document.title = 'Agregar producto';

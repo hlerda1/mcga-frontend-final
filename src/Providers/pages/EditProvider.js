@@ -4,12 +4,10 @@ import { getProvider } from 'Providers/store/thunks';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useHttpClient } from 'shared/context/httpClient.context';
 
 const EditProvider = () => {
   const { provider, providers } = useSelector((state) => state.providers);
   const { providerId } = useParams();
-  const httpClient = useHttpClient();
   const dispatch = useDispatch();
   useEffect(() => {
     if (provider) {
@@ -21,9 +19,9 @@ const EditProvider = () => {
     if (foundProvider) {
       dispatch(setProvider(foundProvider));
     } else {
-      dispatch(getProvider(providerId, httpClient));
+      dispatch(getProvider(providerId));
     }
-  }, [providerId, provider, dispatch, providers, httpClient]);
+  }, [providerId, provider, dispatch, providers]);
 
   return (
     <div>
