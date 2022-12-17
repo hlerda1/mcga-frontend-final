@@ -1,0 +1,21 @@
+.table {
+  padding: 1rem;
+  font-family: 'Montserrat';
+  background-color: #FFF;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.table td {
+  padding: .5rem;
+}
+
+.table thead {
+  border-bottom: 1px solid black;
+}
+
+.table th {
+  padding: .75rem;
+  font-weight: bold;
+  text-align: left;
+}
