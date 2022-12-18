@@ -54,11 +54,13 @@ export const addProvider = (provider) => async (dispatch, getState) => {
       body: JSON.stringify(provider),
       headers: {
         Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
       },
     });
     if (!response.ok) {
       throw new Error('Could not add provider!');
     }
+    dispatch(setProvider(null));
     dispatch(getProviders());
     return await response.json().data;
   } finally {
@@ -76,11 +78,13 @@ export const updateProvider =
         body: JSON.stringify(providerData),
         headers: {
           Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
         },
       });
       if (!response.ok) {
         throw new Error('Could not update provider!');
       }
+      dispatch(setProvider(null));
       dispatch(getProviders());
       return await response.json().data;
     } finally {
@@ -98,11 +102,12 @@ export const removeProvider = (providerId) => async (dispatch, getState) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
+    dispatch(dismissProvidersLoading());
     if (!response.ok) {
       throw new Error('Could not remove provider!');
     }
     dispatch(getProviders());
-  } finally {
+  } catch {
     dispatch(dismissProvidersLoading());
   }
 };
