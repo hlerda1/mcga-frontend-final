@@ -4,6 +4,10 @@
   font-size: 1rem;
 }
 
+.label {
+  font-family: 'Montserrat';
+}
+
 .formControl {
   display: flex;
   flex-flow: column wrap;

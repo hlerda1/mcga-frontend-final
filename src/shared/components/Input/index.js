@@ -13,7 +13,7 @@ const ProdInput = ({
 }) => {
   return (
     <div className={`${styles.formControl} ${className || ''}`}>
-      <label htmlFor={name}>{label || placeholder}</label>
+      <label htmlFor={name} className={styles.label}>{label || placeholder}</label>
       <input
         {...props}
         {...register(`${name}`, rules)}
