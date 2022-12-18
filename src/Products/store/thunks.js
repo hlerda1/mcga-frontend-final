@@ -72,12 +72,17 @@ export const removeProduct = (productId) => async (dispatch, getState) => {
     const { accessToken } = getState().auth.token;
     const response = await fetch(`${pURL}/products/${productId}`, {
       method: 'DELETE',
-      Authorization: `Bearer ${accessToken}`
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
     });
     dispatch(dismissLoading());
+    if (!response.ok) {
+      throw new Error('Could not remove product!')
+    }
     dispatch(getProducts());
     return response.status === 204;
-  } catch (error) {
+  } catch {
     dispatch(dismissLoading());
   }
 };
@@ -102,10 +107,15 @@ export const getProviders = () => async (dispatch, getState) => {
   }
 }
 
-export const getProduct = (productId) => async (dispatch) => {
+export const getProduct = (productId) => async (dispatch, getState) => {
   try {
     dispatch(setLoading());
-    const response = await fetch(`${pURL}/products/${productId}`);
+    const { accessToken } = getState().auth.token;
+    const response = await fetch(`${pURL}/products/${productId}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
     if (!response.ok) {
       throw new Error('No se pudo obtener el producto');
     }

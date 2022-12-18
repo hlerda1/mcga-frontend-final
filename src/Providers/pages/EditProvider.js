@@ -10,9 +10,6 @@ const EditProvider = () => {
   const { providerId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (provider) {
-      return;
-    }
     const foundProvider = providers.find(
       (provider) => provider._id === providerId
     );

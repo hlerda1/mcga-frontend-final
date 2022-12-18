@@ -1,4 +1,4 @@
-import { getProviders } from 'Providers/store/thunks';
+import { getProviders, removeProvider } from 'Providers/store/thunks';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ActionMenu from 'shared/components/ActionMenu';
@@ -11,10 +11,14 @@ const Providers = () => {
   document.title = 'Proveedores';
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const { providers } = useSelector((state) => state.providers);
+  const { providers, isLoading } = useSelector((state) => state.providers);
   useEffect(() => {
     dispatch(getProviders());
   }, [dispatch]);
+
+  const onRemoveProvider = async (providerId) => {
+    await dispatch(removeProvider(providerId))
+  }
   const cols = [
     {
       header: 'ID',
@@ -36,7 +40,7 @@ const Providers = () => {
               </Link>
               <button
                 title="Remover"
-                // onClick={() => onRemoveProduct(product._id)}
+                onClick={() => onRemoveProvider(row._id)}
                 type="button"
               >
                 <span>&times;</span>
@@ -55,7 +59,7 @@ const Providers = () => {
         <h1>Proveedores</h1>
         {auth.user && <ButtonAddLink to="/providers/add" />}
       </div>
-      <Table columns={cols} value={providers} />
+      <Table columns={cols} value={providers} isLoading={isLoading} />
     </div>
   );
 };
