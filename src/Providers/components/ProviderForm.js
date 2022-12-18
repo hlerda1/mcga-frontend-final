@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useMemo } from 'react';
 import styles from './ProviderForm.module.css';
 import { useNavigate } from 'react-router-dom';
+import Card from 'shared/components/Card';
 
 const ProviderForm = ({ provider }) => {
   const isEditMode = Boolean(provider);
@@ -43,16 +44,22 @@ const ProviderForm = ({ provider }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <Input
-        register={register}
-        name="name"
-        rules={{ required: 'Por favor, ingrese un nombre' }}
-        label="Nombre"
-        errors={errors}
-      />
-      <Button text={isEditMode ? 'Guardar' : 'Agregar'} type="submit" loading={isLoading} />
-    </form>
+    <Card header={isEditMode ? 'Editar proveedor' : 'Agregar proveedor'}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <Input
+          register={register}
+          name="name"
+          rules={{ required: 'Por favor, ingrese un nombre' }}
+          label="Nombre"
+          errors={errors}
+        />
+        <Button
+          text={isEditMode ? 'Guardar' : 'Agregar'}
+          type="submit"
+          loading={isLoading}
+        />
+      </form>
+    </Card>
   );
 };
 

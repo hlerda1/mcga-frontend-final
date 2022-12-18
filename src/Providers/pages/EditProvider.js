@@ -21,8 +21,7 @@ const EditProvider = () => {
   }, [providerId, provider, dispatch, providers]);
 
   return (
-    <div>
-      <h1>Editar proveedor</h1>
+    <div className="formPage">
       <ProviderForm provider={provider} />
     </div>
   );
