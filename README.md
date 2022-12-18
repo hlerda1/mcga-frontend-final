@@ -3,8 +3,8 @@
 ## Ingeniería en sistemas informáticos
 ### Modelos computacionales de gestión administrativa
 #### Examen final: Frontend
-##### Horacio Lerda
-##### Braian Quispe
+##### [Horacio Lerda](https://github.com/hlerda1)
+##### [Braian Quispe](https://github.com/brquispe)
 **2022**
 Aplicación de ReactJS hecha con JavaScript.
 
