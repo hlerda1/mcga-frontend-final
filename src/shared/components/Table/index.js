@@ -1,6 +1,7 @@
+import LoadingSpinner from '../LoadingSpinner';
 import styles from './Table.module.css';
 
-const Table = ({ value, columns, className }) => {
+const Table = ({ value, columns, className, isLoading }) => {
   return (
     <table className={`${styles.table} ${className || ''}`}>
       <thead>
@@ -11,6 +12,18 @@ const Table = ({ value, columns, className }) => {
         </tr>
       </thead>
       <tbody>
+        {isLoading && (
+          <tr className={styles.loading}>
+            <td colSpan={columns.length}>
+              <LoadingSpinner />
+            </td>
+          </tr>
+        )}
+        {!isLoading && value?.length === 0 && (
+          <tr>
+            <td colSpan={columns.length}>No se encontraron resultados</td>
+          </tr>
+        )}
         {value.map((row) => (
           <tr key={row._id}>
             {columns.map((column) => (
