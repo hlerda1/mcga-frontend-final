@@ -40,7 +40,8 @@ const ProdForm = ({ product }) => {
 
   useEffect(() => {
     dispatch(getProviders());
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const navigate = useNavigate();
 
