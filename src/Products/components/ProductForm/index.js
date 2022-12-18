@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import styles from './prodform.module.css';
+import styles from './ProductForm.module.css';
 import ProdInput from '../../../shared/components/Input';
 import ProdButton from '../../../shared/components/Button';
 import { useForm } from 'react-hook-form';

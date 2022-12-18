@@ -1,15 +1,16 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts, removeProduct } from 'Products/store/thunks';
 import { useProducts } from 'Products/store/reducer';
 import ProductCard from 'Products/components/ProductCard';
 import LoadingSpinner from 'shared/components/LoadingSpinner';
-import styles from './prod.module.css';
+import styles from './Products.module.css';
 import { Link } from 'react-router-dom';
 
 const Products = () => {
   document.title = 'Productos';
   const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth);
 
   const { products, isLoadingProducts } = useProducts();
   useEffect(() => {
@@ -24,7 +25,7 @@ const Products = () => {
     <div className={styles.products}>
       <div className={styles.heading}>
         <h1>Productos</h1>
-        <Link className={styles.btnAdd} to="/products/add">+</Link>
+        { auth.user && <Link className={styles.btnAdd} to="/products/add">+</Link> }
       </div>
       {isLoadingProducts ? (
         <div className={styles.centerLoadingSpinner}>

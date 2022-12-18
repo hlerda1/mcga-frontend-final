@@ -2,11 +2,14 @@
   display: flex;
   gap: 1rem;
   flex-flow: column wrap;
+  width: 100%;
 }
 
 .productDeck {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  width: 100%;
 }
 
 .centerLoadingSpinner {
