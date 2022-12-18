@@ -24,7 +24,7 @@ const Table = ({ value, columns, className, isLoading }) => {
             <td colSpan={columns.length}>No se encontraron resultados</td>
           </tr>
         )}
-        {value.map((row) => (
+        {!isLoading && value?.map((row) => (
           <tr key={row._id}>
             {columns.map((column) => (
               <td key={`${row._id}.${column.field}`}>
