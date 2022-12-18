@@ -1,4 +1,4 @@
-import ProdForm from 'Products/components/ProductForm';
+import ProductForm from 'Products/components/ProductForm';
 import { useProducts } from 'Products/store/reducer';
 import { getProduct } from 'Products/store/thunks';
 import { useEffect } from 'react';
@@ -18,9 +18,8 @@ const EditProduct = () => {
 
   return (
     <div className={styles.editProductPage}>
-      <h1>Editar producto</h1>
       {isLoadingProducts && <LoadingSpinner />}
-      {product && <ProdForm product={product} />}
+      {product && <ProductForm product={product} />}
     </div>
   );
 };

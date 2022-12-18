@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useProducts } from 'Products/store/reducer';
 import { addProduct, getProviders, updateProduct } from 'Products/store/thunks';
 import SelectInput from 'shared/components/SelectInput';
+import Card from 'shared/components/Card';
 
 const ProdForm = ({ product }) => {
   const defaultValues = useMemo(
@@ -33,6 +34,7 @@ const ProdForm = ({ product }) => {
     reset(defaultValues)
   }, [product, defaultValues, reset])
 
+  const isEditMode = Boolean(product);
   const dispatch = useDispatch();
   const { providers, isLoadingProducts } = useProducts();
 
@@ -52,52 +54,49 @@ const ProdForm = ({ product }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <ProdInput
-        register={register}
-        type="text"
-        placeholder="Nombre"
-        name="name"
-        label="Nombre"
-        rules={{
-          required: 'Nombre requerido'
-        }}
-        errors={errors}
-      />
-
-      <ProdInput
-        register={register}
-        type="number"
-        placeholder="Precio"
-        name="price"
-        label="Precio"
-        rules={{
-          required: 'Precio requerido',
-          min: {
-            value: 0,
-            message: 'Debe ser mayor o igual a 0'
-          },
-        }}
-        errors={errors}
-      />
-
-      <SelectInput
-        control={control}
-        name="providerId"
-        label="Proveedor"
-        rules={{ required: 'Proveedor requerido' }}
-        options={providers}
-        optionValue="_id"
-        optionLabel="name"
-        errors={errors}
-      />
-
-      <ProdButton
-        text={product ? 'Guardar' : 'Agregar'}
-        type="submit"
-        loading={isLoadingProducts}
-      />
-    </form>
+    <Card header={isEditMode ? 'Editar producto' : 'Agregar producto'}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <ProdInput
+          register={register}
+          type="text"
+          name="name"
+          label="Nombre"
+          rules={{
+            required: 'Nombre requerido'
+          }}
+          errors={errors}
+        />
+        <ProdInput
+          register={register}
+          type="number"
+          name="price"
+          label="Precio"
+          rules={{
+            required: 'Precio requerido',
+            min: {
+              value: 0,
+              message: 'Debe ser mayor o igual a 0'
+            },
+          }}
+          errors={errors}
+        />
+        <SelectInput
+          control={control}
+          name="providerId"
+          label="Proveedor"
+          rules={{ required: 'Proveedor requerido' }}
+          options={providers}
+          optionValue="_id"
+          optionLabel="name"
+          errors={errors}
+        />
+        <ProdButton
+          text={product ? 'Guardar' : 'Agregar'}
+          type="submit"
+          loading={isLoadingProducts}
+        />
+      </form>
+    </Card>
   );
 };
 
