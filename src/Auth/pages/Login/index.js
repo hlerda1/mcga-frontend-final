@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'Auth/store/thunks';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
+import Card from 'shared/components/Card';
 
 const Login = () => {
   const {
@@ -35,28 +36,27 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginPage}>
-      <h1>Iniciá sesión</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.frmLogin}>
-        <ProdInput
-          register={register}
-          name="usernameOrEmail"
-          label="Nombre o correo electrónico"
-          rules={{ required: 'Nombre o correo electrónico requerido' }}
-          errors={errors}
-        />
-
-        <ProdInput
-          register={register}
-          name="password"
-          label="Contraseña"
-          type="password"
-          rules={{ required: 'Contraseña requerida' }}
-          errors={errors}
-        />
-
-        <Button text="Ingresar" type="submit" loading={isLoadingAuth} />
-      </form>
+    <div className="formPage">
+      <Card header="Iniciá sesión">
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.frmLogin}>
+          <ProdInput
+            register={register}
+            name="usernameOrEmail"
+            label="Nombre o correo electrónico"
+            rules={{ required: 'Nombre o correo electrónico requerido' }}
+            errors={errors}
+          />
+          <ProdInput
+            register={register}
+            name="password"
+            label="Contraseña"
+            type="password"
+            rules={{ required: 'Contraseña requerida' }}
+            errors={errors}
+          />
+          <Button text="Ingresar" type="submit" loading={isLoadingAuth} />
+        </form>
+      </Card>
     </div>
   );
 };

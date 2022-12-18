@@ -67,6 +67,12 @@ a.active {
   gap: 1rem;
   flex-flow: column wrap;
   padding: 1rem 2rem;
-  width: 40%;
+  width: 90%;
   margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .formPage {
+    width: 40%;
+  }
 }
