@@ -1,0 +1,62 @@
+.actionButton {
+  border: 1px solid transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--color-third);
+  font-size: 1.5rem;
+  width: auto;
+  margin: 0;
+}
+
+.actionButton:hover {
+  border: 1px solid var(--color-third);
+}
+
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-primary);
+  z-index: 1;
+  left: 0;
+  bottom: 20px;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  border-top: none;
+}
+
+.dropdown-content button,
+.dropdown-content a {
+  color: var(--color-fourth);
+  background-color: var(--color-light);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown .dropdown-content--visible {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.dropdown-content > button,
+.dropdown-content > a {
+  background-color: var(--color-light);
+  display: flex;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+.dropdown-content > button:hover,
+.dropdown-content > a:hover {
+  background-color: var(--color-third);
+  color: var(--color-light);
+}

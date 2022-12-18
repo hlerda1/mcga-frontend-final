@@ -1,0 +1,18 @@
+.input {
+  padding: .25rem;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+.label {
+  font-family: 'Montserrat';
+}
+
+.formControl {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.errorInputMessage {
+  color: var(--color-third);
+}

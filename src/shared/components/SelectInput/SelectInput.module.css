@@ -1,0 +1,23 @@
+.selectInputWrapper{
+  width: 100%;
+}
+
+.selectInput {
+  padding: .25rem;
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+.selectInput option {
+  padding: .5rem;
+  font-size: .9rem;
+}
+
+.selectInput option:hover {
+  box-shadow: 0 0 10px 100px #1882A8 inset;
+}
+
+.errorInputMessage {
+  color: var(--color-third);
+}

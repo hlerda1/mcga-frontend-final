@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+:root {
+  --color-primary: #ffbe0bff;
+  --color-secondary: #fb5607ff;
+  --color-third: #ff006eff;
+  --color-fourth: #8338ecff;
+  --color-fifth: #3a86ffff;
+  --color-light: #f1faee;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--color-light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html,
+body,
+#root {
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+input {
+  font-family: 'Montserrat';
+}
+
+h1 {
+  font-size: 2.125rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+a.active {
+  color: var(--color-fifth);
+  font-weight: bold;
+  background-color: var(--color-primary);
+}
+
+.formPage {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
+  flex-flow: column wrap;
+  padding: 1rem 2rem;
+  width: 90%;
+  margin: auto;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (min-width: 768px) {
+  .formPage {
+    width: 40%;
   }
 }

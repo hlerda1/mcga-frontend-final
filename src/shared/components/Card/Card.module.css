@@ -1,0 +1,25 @@
+.card {
+  background-color: #fff;
+  box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+  border-radius: 6px;
+  font-family: Montserrat;
+}
+
+.card_content {
+  padding: 1.25rem;
+}
+
+.card__header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card__body {
+  padding: 1.25rem 0;
+}
+
+.card__footer {
+  padding: 1.25rem 0 0 0;
+}

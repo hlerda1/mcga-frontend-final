@@ -1,0 +1,14 @@
+.loginPage {
+  display: flex;
+  gap: 1rem;
+  flex-flow: column wrap;
+  padding: 1rem 2rem;
+  width: 70%;
+  margin: auto;
+}
+
+.frmLogin {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5rem;
+}

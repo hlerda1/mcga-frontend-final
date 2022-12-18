@@ -1,0 +1,11 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 50pt;
+  padding: 10%;
+}
+
+.home h1 {
+  color: var(--color-primary);
+}
