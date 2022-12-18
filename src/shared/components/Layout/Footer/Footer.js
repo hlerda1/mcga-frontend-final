@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <section>
         <a
-          href="https://github.com/brquispe/MCGA-parcial-2"
+          href="https://github.com/hlerda1/mcga-frontend-final"
           target="_blank"
           rel="noreferrer"
           className={styles.icon}
