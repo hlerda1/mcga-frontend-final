@@ -1,10 +1,10 @@
-const { ProvidersActions } = require('./types');
+import { ProvidersActions } from './types';
 
 const INITIAL_STATE = {
   providers: [],
   isLoading: false,
   error: null,
-  provider: null
+  provider: null,
 };
 
 const providersReducer = (state = INITIAL_STATE, action) => {
@@ -32,8 +32,8 @@ const providersReducer = (state = INITIAL_STATE, action) => {
     case ProvidersActions.SET_PROVIDER:
       return {
         ...state,
-        provider: action.payload
-      }
+        provider: action.payload,
+      };
     default:
       return state;
   }

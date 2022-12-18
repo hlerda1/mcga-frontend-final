@@ -1,5 +1,5 @@
-const { useSelector } = require('react-redux');
-const { Navigate, useLocation } = require('react-router-dom');
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
   const auth = useSelector((state) => state.auth);

@@ -5,8 +5,7 @@ import ActionMenu from 'shared/components/ActionMenu';
 import ButtonAddLink from 'shared/components/ButtonAdd';
 import Table from 'shared/components/Table';
 import styles from './Providers.module.css';
-
-const { useSelector, useDispatch } = require('react-redux');
+import { useSelector, useDispatch } from 'react-redux';
 
 const Providers = () => {
   document.title = 'Proveedores';

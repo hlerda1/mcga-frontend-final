@@ -16,14 +16,16 @@ export const getProducts = (showDeleted = false) => async (dispatch) => {
   }
 };
 
-export const addProduct = (data) => async (dispatch) => {
+export const addProduct = (data) => async (dispatch, getState) => {
   try {
     dispatch(setLoading());
+    const { accessToken } = getState().auth.token;
     let response = await fetch(`${pURL}/products`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
       },
     });
     if (!response.ok) {
@@ -39,14 +41,16 @@ export const addProduct = (data) => async (dispatch) => {
   }
 };
 
-export const updateProduct = (productId, data) => async (dispatch) => {
+export const updateProduct = (productId, data) => async (dispatch, getState) => {
   try {
     dispatch(setLoading());
+    const { accessToken } = getState().auth.token;
     let response = await fetch(`${pURL}/products/${productId}`, {
       method: 'PUT',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
       }, 
     });
     if (!response.ok) {
@@ -62,11 +66,13 @@ export const updateProduct = (productId, data) => async (dispatch) => {
   }
 };
 
-export const removeProduct = (productId) => async (dispatch) => {
+export const removeProduct = (productId) => async (dispatch, getState) => {
   try {
     dispatch(setLoading());
+    const { accessToken } = getState().auth.token;
     const response = await fetch(`${pURL}/products/${productId}`, {
       method: 'DELETE',
+      Authorization: `Bearer ${accessToken}`
     });
     dispatch(dismissLoading());
     dispatch(getProducts());
@@ -76,10 +82,15 @@ export const removeProduct = (productId) => async (dispatch) => {
   }
 };
 
-export const getProviders = () => async (dispatch) => {
+export const getProviders = () => async (dispatch, getState) => {
   try {
     dispatch(setLoading());
-    const response = await fetch(`${pURL}/providers`);
+    const { accessToken } = getState().auth.token;
+    const response = await fetch(`${pURL}/providers`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
     if (!response.ok) {
       throw new Error('No se pudo obtener los proveedores');
     }
