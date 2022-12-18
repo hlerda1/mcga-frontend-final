@@ -54,7 +54,7 @@ const Providers = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.providersPage}>
       <div className={styles.heading}>
         <h1>Proveedores</h1>
         {auth.user && <ButtonAddLink to="/providers/add" />}
